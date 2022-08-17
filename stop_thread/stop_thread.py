@@ -31,7 +31,7 @@ def stop_thread(ident: int):
 
     if res == 0:
         # raise ValueError("invalid thread id")
-        logger.error("invalid thread ident: thread probrbaly already stopped")
+        logger.error("invalid thread ident: thread probably already stopped")
     elif res == 1:
         logger.info("thread %s interrupted", ident)
         # self.thread.quit()
