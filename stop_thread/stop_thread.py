@@ -4,7 +4,7 @@ from logzero import logger
 
 
 def stop_thread(ident: int):
-    """Stop/interrup a thread with ident.
+    """Stop/interrupt a thread with ident.
 
     Args:
         ident: thread's id, can be obtained by
