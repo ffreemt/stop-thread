@@ -1,0 +1,21 @@
+{
+    "dependencies": {
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w stop_thread -x pytest tests",
+        "pyright": "nodemon -w stop_thread -w .venv -e .py -x pyright stop_thread tests",
+        "pytest": "nodemon -w tests -w stop_thread -e .py -x pytest tests stop_thread",
+        "style": "nodemon -w stop_thread -w tests -x \"black tests stop_thread && python -m flake8\"",
+        "docstyle": "nodemon -w stop_thread -w tests -x pydocstyle --convention=google tests stop_thread",
+        "pylint": "nodemon -w stop_thread -e .py -x pylint stop_thread",
+        "test:stop_thread": "nodemon -w tests -e .py -x pytest -k stop_thread tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests stop_thread",
+        "flake8": "flake8 tests stop_thread",
+        "pflake8": "pflake8 tests stop_thread",
+        "pep257": "pep257 tests stop_thread",
+        "final": "run-s docstyle black flake8 pytest"
+    }
+}
