@@ -20,7 +20,6 @@ def stop_thread(ident: int):
     """
     i_error = ctypes.py_object(InterruptedError)
 
-    # if user clicks stop before doing anything
     try:
         tid = ctypes.c_long(ident)
     except Exception as exc:
