@@ -6,7 +6,7 @@ Stop a thread in a nasty way
 ## Install it
 
 ```shell
-pip install stop_thread
+pip install stop-thread
 # pip install git+https://github.com/ffreemt/stop-thread
 # poetry add git+https://github.com/ffreemt/stop-thread
 # git clone https://github.com/ffreemt/stop-thread && cd stop-thread
