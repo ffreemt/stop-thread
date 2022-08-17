@@ -1,7 +1,6 @@
 """Test stop_thread."""
 # pylint: disable=broad-except
-from stop_thread import __version__
-from stop_thread import stop_thread
+from stop_thread import __version__, stop_thread
 
 
 def test_version():

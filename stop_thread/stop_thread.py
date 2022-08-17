@@ -1,5 +1,6 @@
 """Define stop_thread."""
 import ctypes
+
 from logzero import logger
 
 
@@ -30,13 +31,15 @@ def stop_thread(ident: int):
 
     if res == 0:
         # raise ValueError("invalid thread id")
-        logger.error("invalid thread id: thread probrbaly already stopped")
+        logger.error("invalid thread ident: thread probrbaly already stopped")
     elif res == 1:
-        logger.error(" interrupted ")
+        logger.info("thread %s interrupted", ident)
         # self.thread.quit()
         # self.worker.deleteLater()
     elif res > 1:
-        # if it returns a number greater than one, you're in trouble,
-        # and you should call it again with exc=NULL to revert the effect"""
+        # we are in trouble
+        # call it again with None to revert the effect
         ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
-        raise SystemError("PyThreadState_SetAsyncExc failed")
+
+        # catch this if necessary and decide what to do
+        raise Exception("PyThreadState_SetAsyncExc failed")
