@@ -9,8 +9,9 @@ def stop_thread(ident: int):
 
     Args:
         ident: thread's id, can be obtained by
-                 threading.current_thread().ident
-                 or int(PyQt5.QtCore.QThread.currentThreadId())
+                threading.get_ident() or
+                threading.current_thread().ident
+                or int(PyQt5.QtCore.QThread.currentThreadId())
 
     Very often you'd follow stop_thread(ident) up with:
         thread.quit()

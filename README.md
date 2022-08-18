@@ -17,7 +17,9 @@ pip install stop-thread
 import threading
 from stop_thread import stop_thread
 
-ident = threading.current_thread().ident
+ident = threading.get_ident()
+# ident = threading.current_thread().ident
+
 stop_thread(ident)
 # possibly follow up with some clean-up to properly terminate the thread
 # e.g. thread.quit(); thread.wait()
